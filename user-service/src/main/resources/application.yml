@@ -1,11 +1,11 @@
 server:
-  port: 8001
+  port: 8002
 
 spring:
   application:
-    name: order-service
+    name: user-service
   config:
-    import: "optional:nacos:order"
+    import: "optional:nacos:user"
   cloud:
     nacos:
       config:

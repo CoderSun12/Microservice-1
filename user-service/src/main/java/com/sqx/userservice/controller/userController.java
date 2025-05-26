@@ -1,4 +1,4 @@
-package com.sqx.orderservice.controller;
+package com.sqx.userservice.controller;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class orderController {
+public class userController {
 
     @Value("${text}")
     private String text;
-    @GetMapping("/o")
+    @GetMapping("/u")
     public String order(){
         return text;
     }

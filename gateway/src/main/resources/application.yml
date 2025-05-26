@@ -1,0 +1,36 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 47.116.121.111:8848
+        username: nacos
+        password: nacos
+        namespace: e644b488-b18f-4a4e-9a59-829419f86189
+    gateway:
+      discovery:
+        locator:
+          enabled: true  # 开启服务发现
+      routes:
+        - id: user-service
+#          uri: lb://user-service  # 使用服务名调用
+          uri: http://127.0.0.1:8002/u  # 使用服务名调用
+          predicates:
+            - Path=/user/**
+          filters:
+            - RewritePath=/user(?<segment>/?.*), /u${segment}
+
+        - id: order-service
+          uri: lb://order-service
+          predicates:
+            - Path=/order/**
+          filters:
+            - RewritePath=/order(?<segment>/?.*), /o${segment}
+
+logging:
+  level:
+    org.springframework.cloud.gateway: debug
