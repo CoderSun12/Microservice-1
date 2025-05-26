@@ -1,0 +1,27 @@
+server:
+  port: 8002
+
+spring:
+  application:
+    name: user-service
+  config:
+    import: "optional:nacos:user"
+  cloud:
+    nacos:
+      config:
+        server-addr: 47.116.121.111:8848
+        username: nacos
+        password: nacos
+        namespace: e644b488-b18f-4a4e-9a59-829419f86189
+        group: DEFAULT_GROUP
+      discovery:
+        server-addr: 47.116.121.111:8848
+        username: nacos
+        password: nacos
+        namespace: e644b488-b18f-4a4e-9a59-829419f86189
+logging:
+  level:
+    com.alibaba.nacos: WARN
+
+
+
