@@ -4,6 +4,11 @@ server:
 spring:
   application:
     name: user-service
+  rabbitmq:
+    host: 47.117.64.197
+    port: 5672
+    username: rabbit
+    password: rabbit
   config:
     import: "optional:nacos:user"
   cloud:
